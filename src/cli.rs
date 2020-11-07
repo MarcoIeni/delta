@@ -3,6 +3,7 @@ use std::collections::{HashMap, HashSet};
 use std::ffi::OsString;
 use std::path::PathBuf;
 
+use bat::PagingMode;
 use itertools;
 use lazy_static::lazy_static;
 use structopt::clap::AppSettings::{ColorAlways, ColoredHelp, DeriveDisplayOrder};
@@ -11,7 +12,6 @@ use syntect::highlighting::Theme as SyntaxTheme;
 use syntect::parsing::SyntaxSet;
 
 use crate::bat_utils::assets::HighlightingAssets;
-use crate::bat_utils::output::PagingMode;
 use crate::git_config::GitConfig;
 use crate::git_config_entry::GitConfigEntry;
 use crate::options;
@@ -607,12 +607,6 @@ pub enum LineNumbersMode {
 impl Default for LineNumbersMode {
     fn default() -> Self {
         LineNumbersMode::First
-    }
-}
-
-impl Default for PagingMode {
-    fn default() -> Self {
-        PagingMode::Never
     }
 }
 

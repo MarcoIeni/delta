@@ -29,12 +29,13 @@ use std::io::{self, ErrorKind, Read, Write};
 use std::path::PathBuf;
 use std::process;
 
+use bat::PagingMode;
 use bytelines::ByteLinesReader;
 use itertools::Itertools;
 use structopt::StructOpt;
 
 use crate::bat_utils::assets::{list_languages, HighlightingAssets};
-use crate::bat_utils::output::{OutputType, PagingMode};
+use crate::bat_utils::output::OutputType;
 use crate::delta::delta;
 use crate::options::theme::is_light_syntax_theme;
 

@@ -1,6 +1,7 @@
 // https://github.com/sharkdp/bat a1b9334a44a2c652f52dddaa83dbacba57372468
 // src/output.rs
 // See src/bat/LICENSE
+use bat::PagingMode;
 use std::ffi::OsString;
 use std::io::{self, Write};
 use std::path::PathBuf;
@@ -14,13 +15,6 @@ use crate::config;
 use crate::env;
 use crate::features::navigate;
 
-#[derive(Debug, Clone, Copy, PartialEq)]
-#[allow(dead_code)]
-pub enum PagingMode {
-    Always,
-    QuitIfOneScreen,
-    Never,
-}
 use crate::errors::*;
 
 pub enum OutputType {

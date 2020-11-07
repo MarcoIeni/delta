@@ -2,13 +2,13 @@ use std::collections::HashMap;
 use std::path::PathBuf;
 use std::process;
 
+use bat::PagingMode;
 use regex::Regex;
 use structopt::clap;
 use syntect::highlighting::Style as SyntectStyle;
 use syntect::highlighting::Theme as SyntaxTheme;
 use syntect::parsing::SyntaxSet;
 
-use crate::bat_utils::output::PagingMode;
 use crate::cli;
 use crate::color;
 use crate::delta::State;
