@@ -11,7 +11,7 @@ use syntect::dumps::{from_binary, from_reader};
 use syntect::highlighting::ThemeSet;
 use syntect::parsing::SyntaxSet;
 
-use crate::bat::dirs::PROJECT_DIRS;
+use crate::bat_utils::dirs::PROJECT_DIRS;
 use crate::errors::*;
 
 pub struct HighlightingAssets {
