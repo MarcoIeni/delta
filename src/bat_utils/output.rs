@@ -6,19 +6,14 @@ use std::io::{self, Write};
 use std::path::PathBuf;
 use std::process::{Child, Command, Stdio};
 
+use bat::PagingMode;
+
 use super::less::retrieve_less_version;
 
 use crate::config;
 use crate::env;
 use crate::features::navigate;
 
-#[derive(Debug, Clone, Copy, PartialEq)]
-#[allow(dead_code)]
-pub enum PagingMode {
-    Always,
-    QuitIfOneScreen,
-    Never,
-}
 use crate::errors::*;
 
 pub enum OutputType {

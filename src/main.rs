@@ -5,7 +5,7 @@ extern crate error_chain;
 
 mod align;
 mod ansi;
-mod bat;
+mod bat_utils;
 mod cli;
 mod color;
 mod config;
@@ -29,12 +29,13 @@ use std::io::{self, ErrorKind, Read, Write};
 use std::path::PathBuf;
 use std::process;
 
+use bat::PagingMode;
 use bytelines::ByteLinesReader;
 use itertools::Itertools;
 use structopt::StructOpt;
 
-use crate::bat::assets::{list_languages, HighlightingAssets};
-use crate::bat::output::{OutputType, PagingMode};
+use crate::bat_utils::assets::{list_languages, HighlightingAssets};
+use crate::bat_utils::output::OutputType;
 use crate::delta::delta;
 use crate::options::theme::is_light_syntax_theme;
 
