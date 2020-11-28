@@ -28,6 +28,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Set environment variables
+        shell: bash
         run: |
           echo "{TARGET}={${{ matrix.target }}}" >> $GITHUB_ENV
           if [ ${{ matrix.os }} == ubuntu-latest ]; then
