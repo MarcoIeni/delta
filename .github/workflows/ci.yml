@@ -61,7 +61,7 @@ jobs:
       - name: Unit tests
         uses: actions-rs/cargo@v1
         with:
-          use-cross: ${{ matrix.use_cross }}
+          use-cross: ${{ matrix.use-cross }}
           command: test
           args: --target ${{ matrix.target }} --verbose
 
