@@ -36,11 +36,11 @@ jobs:
 
               echo "CC_x86_64_unknown_linux_musl=/usr/bin/musl-gcc" >> $GITHUB_ENV
 
-              echo "CC_arm_unknown_linux_gnueabihf=/usr/bin/arm-linux-gnueabihf-gcc-4.8" >> $GITHUB_ENV
-              echo "CARGO_TARGET_ARM_UNKNOWN_LINUX_GNUEABIHF_LINKER=arm-linux-gnueabihf-gcc-4.8" >> $GITHUB_ENV
+              echo "CC_arm_unknown_linux_gnueabihf=/usr/bin/arm-linux-gnueabihf-gcc-8" >> $GITHUB_ENV
+              echo "CARGO_TARGET_ARM_UNKNOWN_LINUX_GNUEABIHF_LINKER=arm-linux-gnueabihf-gcc-8" >> $GITHUB_ENV
 
-              echo "CC_aarch64_unknown_linux_gnu=/usr/bin/aarch64-linux-gnu-gcc-4.8" >> $GITHUB_ENV
-              echo "CARGO_TARGET_AARCH64_UNKNOWN_LINUX_GNU_LINKER=aarch64-linux-gnu-gcc-4.8" >> $GITHUB_ENV
+              echo "CC_aarch64_unknown_linux_gnu=/usr/bin/aarch64-linux-gnu-gcc-8" >> $GITHUB_ENV
+              echo "CARGO_TARGET_AARCH64_UNKNOWN_LINUX_GNU_LINKER=aarch64-linux-gnu-gcc-8" >> $GITHUB_ENV
           fi
       - name: Install required packages
         run: ./etc/ci/before_install.sh
