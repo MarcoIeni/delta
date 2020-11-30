@@ -59,7 +59,10 @@ jobs:
 
       - name: Packaging final binary
         shell: bash
-        run: ./etc/ci/before_deploy.sh
+        run: |
+          if [ ${{ matrix.job.os }} == ubuntu-latest ]; then
+              ./etc/ci/before_deploy.sh
+          fi
       - name: Releasing assets
         uses: softprops/action-gh-release@v1
         with:
