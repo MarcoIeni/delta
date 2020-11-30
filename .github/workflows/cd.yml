@@ -45,9 +45,6 @@ jobs:
       - name: Install required dependencies
         shell: bash
         run: |
-          if [ ${{ matrix.job.os }} != ubuntu-latest ]; then
-              exit 0
-          fi
           if [[ $TARGET == arm-unknown-linux-gnueabihf ]]; then
               sudo apt update
               sudo apt-get install -y binutils-arm-linux-gnueabihf
