@@ -40,10 +40,11 @@ jobs:
         run: |
           echo "PROJECT_NAME=delta" >> $GITHUB_ENV
           echo "PACKAGE_NAME=git-delta" >> $GITHUB_ENV
-          echo "TARGET=${{ matrix.job.target }}" >> $GITHUB_ENV
 
       - name: Install required dependencies
         shell: bash
+        env:
+          TARGET: ${{ matrix.job.target }}
         run: |
           if [[ $TARGET == arm-unknown-linux-gnueabihf ]]; then
               sudo apt update
@@ -56,10 +57,9 @@ jobs:
 
       - name: Packaging final binary
         shell: bash
-        run: |
-          if [ ${{ matrix.job.os }} == ubuntu-latest ]; then
-              ./etc/ci/before_deploy.sh
-          fi
+        env:
+          TARGET: ${{ matrix.job.target }}
+        run: ./etc/ci/before_deploy.sh
       - name: Releasing assets
         uses: softprops/action-gh-release@v1
         with:
