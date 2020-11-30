@@ -42,6 +42,21 @@ jobs:
           echo "PACKAGE_NAME=git-delta" >> $GITHUB_ENV
           echo "TARGET=${{ matrix.job.target }}" >> $GITHUB_ENV
 
+      - name: Install required dependencies
+        shell: bash
+        run: |
+          if [ ${{ matrix.job.os }} != ubuntu-latest ]; then
+              exit 0
+          fi
+          if [[ $TARGET == arm-unknown-linux-gnueabihf ]]; then
+              sudo apt update
+              sudo apt-get install -y binutils-arm-linux-gnueabihf
+          fi
+          if [[ $TARGET == aarch64-unknown-linux-gnu ]]; then
+              sudo apt update
+              sudo apt-get install -y binutils-aarch64-linux-gnu
+          fi
+
       - name: Packaging final binary
         shell: bash
         run: ./etc/ci/before_deploy.sh
