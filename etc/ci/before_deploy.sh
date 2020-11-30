@@ -3,10 +3,6 @@
 
 set -ex
 
-build() {
-    cargo build --target "$TARGET" --release --verbose
-}
-
 pack() {
     local tempdir
     local out_dir
@@ -171,7 +167,6 @@ EOF
 
 
 main() {
-    build
     pack
     if [[ $TARGET = *linux* ]]; then
       make_deb
