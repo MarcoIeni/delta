@@ -40,6 +40,7 @@ jobs:
         run: |
           echo "PROJECT_NAME=delta" >> $GITHUB_ENV
           echo "PACKAGE_NAME=git-delta" >> $GITHUB_ENV
+          echo "TARGET=${{ matrix.job.target }}" >> $GITHUB_ENV
 
       - name: Packaging final binary
         shell: bash
