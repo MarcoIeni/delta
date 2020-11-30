@@ -85,7 +85,8 @@ make_deb() {
             return 0
             ;;
     esac
-    version=${TRAVIS_TAG#v}
+    version=${GITHUB_REF/refs\/tags\//}
+
     if [[ $TARGET = *musl* ]]; then
       dpkgname=$PACKAGE_NAME-musl
       conflictname=$PROJECT_NAME
