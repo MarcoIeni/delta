@@ -36,11 +36,6 @@ jobs:
           use-cross: ${{ matrix.job.use-cross }}
           args: --release --target ${{ matrix.job.target }}
 
-      - name: set environment variables
-        run: |
-          echo "PROJECT_NAME=delta" >> $GITHUB_ENV
-          echo "PACKAGE_NAME=git-delta" >> $GITHUB_ENV
-
       - name: Install required dependencies
         shell: bash
         env:
@@ -59,6 +54,8 @@ jobs:
         shell: bash
         env:
           TARGET: ${{ matrix.job.target }}
+          PROJECT_NAME: delta
+          PACKAGE_NAME: git-delta
         run: ./etc/ci/before_deploy.sh
       - name: Releasing assets
         uses: softprops/action-gh-release@v1
